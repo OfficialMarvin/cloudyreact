@@ -1,33 +1,42 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [account, setAccount] = useState(null)
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        setAccount(accounts[0])
+      } catch (error) {
+        console.error("Error connecting to MetaMask", error)
+      }
+    } else {
+      alert("MetaMask is not installed. Please install it to use this app.")
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="header">
+        <h1>Welcome to CloudyAI</h1>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        {!account ? (
+          <button onClick={connectWallet}>
+            Connect MetaMask
+          </button>
+        ) : (
+          <p>Connected Account: {account}</p>
+        )}
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          CloudyAI bridges AI models with blockchain smart contracts, creating a seamless, secure, and efficient ecosystem. Experience the power of AI and blockchain integration with our WebXR interface.
+        </p>
+        <p>
+          Just like the water cycle on Earth, our platform relies on H2O to function. Power your projects with CloudyAI and join the future of technology.
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
