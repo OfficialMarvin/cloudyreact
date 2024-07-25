@@ -43,7 +43,7 @@ function App() {
       </div>
       <div className="content">
         <p>
-          CloudyAI bridges AI models with blockchain smart contracts, creating a seamless, secure, and efficient ecosystem. Experience the power of AI and blockchain integration with our WebXR interface.
+          CloudyAI is a virtual assistant that bridges AI models with blockchain smart contracts, creating a seamless, secure, and efficient ecosystem. Stake tokens to chat with Cloudy and become a part of the CloudyDAO!
         </p>
         <p>
           Just like the water cycle on Earth, our platform relies on H2O to function. Power your projects with CloudyAI and join the future of technology.
