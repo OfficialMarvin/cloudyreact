@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Client } from "@gradio/client";
 
 function App() {
   const [inputValue, setInputValue] = useState('');
